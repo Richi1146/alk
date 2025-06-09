@@ -1,0 +1,735 @@
+/* --- Variables CSS de Alkosto --- */
+:root {
+    --color-alkosto-red: #E60023; /* Rojo principal */
+    --color-alkosto-dark-red: #B2001A; /* Rojo para hover o elementos más oscuros */
+    --color-alkosto-blue: #002D62; /* Azul para títulos y algunos textos */
+    --color-alkosto-dark-blue: #001F41; /* Azul para hover */
+    --color-alkosto-gray-lightest: #F9F9F9; /* Fondo muy claro */
+    --color-alkosto-gray-light: #F0F0F0; /* Para fondos de secciones o bordes suaves */
+    --color-alkosto-gray-medium: #CCCCCC; /* Para bordes de inputs, etc. */
+    --color-alkosto-gray-dark: #333333; /* Texto principal */
+    --color-alkosto-black: #000000; /* Fondo footer, algunos textos */
+    --color-alkosto-white: #FFFFFF; /* Texto y fondos claros */
+    --color-alkosto-orange: #FF8C00; /* Naranja/amarillo para ofertas específicas */
+
+    --font-family-base: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --font-family-heading: 'Roboto', sans-serif; /* Usualmente se usa para títulos */
+}
+
+/* --- Estilos Generales y Reset Básico --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family-base);
+    line-height: 1.6;
+    color: var(--color-alkosto-gray-dark);
+    background-color: var(--color-alkosto-gray-lightest);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px; /* Espaciado lateral para evitar que el contenido se pegue a los bordes */
+}
+
+/* --- Header --- */
+.header {
+    background-color: var(--color-alkosto-white);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Header Utility Bar */
+.header__utility-bar {
+    background-color: var(--color-alkosto-red); /* Fondo rojo para la barra superior */
+    padding: 8px 0;
+}
+
+.header__utility-container {
+    display: flex;
+    justify-content: flex-end; /* Alinea los enlaces a la derecha */
+}
+
+.header__utility-nav {
+    display: flex;
+    gap: 20px;
+}
+
+.header__utility-link {
+    color: var(--color-alkosto-white);
+    font-size: 0.85rem;
+    transition: color 0.2s ease;
+}
+
+.header__utility-link:hover {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Header Main Section (Logo, Search, User Actions) */
+.header__main {
+    padding: 15px 0;
+}
+
+.header__main-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px; /* Espacio entre los elementos principales */
+}
+
+.header__logo img {
+    height: 45px; /* Tamaño del logo */
+    min-width: 120px; /* Tamaño mínimo para asegurar que se vea bien */
+}
+
+.header__search {
+    display: flex;
+    flex-grow: 1;
+    max-width: 600px; /* Limita el ancho del buscador */
+    border: 1px solid var(--color-alkosto-gray-medium);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.header__search input {
+    border: none;
+    padding: 10px 15px;
+    flex-grow: 1;
+    font-size: 1rem;
+    outline: none;
+    color: var(--color-alkosto-gray-dark);
+}
+
+.header__search input::placeholder {
+    color: var(--color-alkosto-gray-medium);
+}
+
+.header__search-button {
+    background-color: var(--color-alkosto-gray-light);
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease;
+}
+
+.header__search-button:hover {
+    background-color: var(--color-alkosto-gray-medium);
+}
+
+.header__search-button img {
+    height: 20px;
+    width: 20px;
+    filter: invert(30%); /* Oscurece el icono de búsqueda */
+}
+
+.header__user-actions {
+    display: flex;
+    gap: 25px;
+}
+
+.header__action-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.85rem;
+    color: var(--color-alkosto-gray-dark);
+    transition: color 0.2s ease;
+}
+
+.header__action-item:hover {
+    color: var(--color-alkosto-red);
+}
+
+.header__action-item img {
+    height: 24px;
+    width: 24px;
+    margin-bottom: 5px;
+    filter: invert(30%); /* Oscurece los iconos */
+    transition: filter 0.2s ease;
+}
+
+.header__action-item:hover img {
+    filter: invert(15%) sepia(100%) saturate(600%) hue-rotate(330deg); /* Color rojo al pasar el ratón */
+}
+
+
+/* Header Navigation (Main Categories) */
+.header__nav {
+    background-color: var(--color-alkosto-blue); /* Barra de navegación azul oscuro */
+    padding: 12px 0;
+}
+
+.header__nav-list {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap; /* Permite que los ítems se envuelvan en pantallas más pequeñas */
+    gap: 10px 15px; /* Espacio entre ítems */
+}
+
+.header__nav-item {
+    /* No tiene estilos directos, solo el link dentro */
+}
+
+.header__nav-link {
+    color: var(--color-alkosto-white);
+    font-weight: bold;
+    font-size: 0.95rem;
+    padding: 5px 10px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    white-space: nowrap;
+    border-radius: 3px;
+}
+
+.header__nav-link:hover {
+    background-color: var(--color-alkosto-dark-blue); /* Azul más oscuro al pasar el ratón */
+}
+
+/* Hamburguer Menu Toggle (Hidden by default on desktop) */
+.header__menu-toggle {
+    display: none; /* Oculto en desktop */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    position: absolute; /* Para posicionarlo en móviles */
+    right: 15px;
+    top: 20px; /* Ajustar posición en la barra superior */
+    z-index: 1001; /* Asegura que esté encima de otros elementos */
+}
+
+.header__menu-icon {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--color-alkosto-gray-dark);
+    position: relative;
+    transition: background-color 0.3s ease;
+}
+
+.header__menu-icon::before,
+.header__menu-icon::after {
+    content: '';
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--color-alkosto-gray-dark);
+    position: absolute;
+    transition: transform 0.3s ease;
+}
+
+.header__menu-icon::before {
+    top: -8px;
+}
+
+.header__menu-icon::after {
+    top: 8px;
+}
+
+/* Animation for active menu icon */
+.header__menu-toggle--active .header__menu-icon {
+    background-color: transparent;
+}
+
+.header__menu-toggle--active .header__menu-icon::before {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.header__menu-toggle--active .header__menu-icon::after {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+
+/* --- Main Content Sections --- */
+section {
+    padding: 30px 0;
+    margin-bottom: 25px;
+    background-color: var(--color-alkosto-white);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+h2 {
+    font-family: var(--font-family-heading);
+    color: var(--color-alkosto-blue);
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
+/* Hero Banner */
+.hero-banner {
+    padding: 0; /* No padding extra para que el banner ocupe todo el ancho */
+    margin-bottom: 25px;
+    background-color: transparent; /* No tiene fondo propio */
+    box-shadow: none; /* No tiene sombra propia */
+}
+
+.hero-banner__image {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Highlight Categories (Icon Cards) */
+.highlight-categories__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Responsivo con min de 100px */
+    gap: 20px;
+    padding: 0 15px; /* Alineado con el container */
+}
+
+.category-icon-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 15px 10px;
+    background-color: var(--color-alkosto-gray-lightest);
+    border-radius: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid var(--color-alkosto-gray-light);
+}
+
+.category-icon-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.category-icon-card__icon {
+    width: 60px; /* Tamaño de los íconos de categoría */
+    height: 60px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.category-icon-card__name {
+    font-weight: bold;
+    font-size: 0.95rem;
+    color: var(--color-alkosto-gray-dark);
+}
+
+/* Product Showcase (General Product Grids) */
+.product-showcase__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* Grid responsivo para productos */
+    gap: 25px;
+    padding: 0 15px;
+}
+
+.product-card {
+    background-color: var(--color-alkosto-white);
+    border: 1px solid var(--color-alkosto-gray-light);
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.product-card__image {
+    width: 100%;
+    max-height: 180px; /* Altura máxima para las imágenes de producto */
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+.product-card__name {
+    font-weight: bold;
+    margin-bottom: 8px;
+    font-size: 1.15rem;
+    color: var(--color-alkosto-gray-dark);
+    flex-grow: 1; /* Permite que el nombre ocupe el espacio disponible */
+}
+
+.product-card__old-price {
+    text-decoration: line-through;
+    color: var(--color-alkosto-gray-medium);
+    font-size: 0.95rem;
+    margin-bottom: 5px;
+}
+
+.product-card__price {
+    color: var(--color-alkosto-red);
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.product-card__button {
+    background-color: var(--color-alkosto-red);
+    color: var(--color-alkosto-white);
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+    width: 100%;
+}
+
+.product-card__button:hover {
+    background-color: var(--color-alkosto-dark-red);
+}
+
+/* Promo Banner (Intermediate Banners) */
+.promo-banner {
+    padding: 0;
+    margin-bottom: 25px;
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.promo-banner__image {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Featured Brands Section */
+.featured-brands__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Grid para logos de marca */
+    gap: 30px;
+    padding: 0 15px;
+    align-items: center; /* Centra los logos verticalmente */
+    justify-items: center; /* Centra los logos horizontalmente */
+}
+
+.brand-logo {
+    max-width: 120px; /* Tamaño máximo para los logos */
+    height: auto;
+    filter: grayscale(100%); /* Desatura los logos */
+    opacity: 0.7;
+    transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+.brand-logo:hover {
+    filter: grayscale(0%); /* Color al pasar el ratón */
+    opacity: 1;
+}
+
+/* --- Footer --- */
+.footer {
+    background-color: var(--color-alkosto-black);
+    color: var(--color-alkosto-white);
+    padding: 40px 0 20px;
+    font-size: 0.9rem;
+}
+
+.footer__columns {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-bottom: 30px;
+    padding: 0 15px;
+}
+
+.footer__heading {
+    color: var(--color-alkosto-red);
+    margin-bottom: 18px;
+    font-size: 1.15rem;
+    font-weight: bold;
+}
+
+.footer__list {
+    padding: 0;
+}
+
+.footer__list li {
+    margin-bottom: 10px;
+}
+
+.footer__link {
+    color: var(--color-alkosto-white);
+    transition: color 0.2s ease;
+}
+
+.footer__link:hover {
+    color: var(--color-alkosto-red);
+}
+
+.footer__social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.footer__social-icon img {
+    height: 30px;
+    width: 30px;
+    /* Para hacer los íconos blancos en fondo oscuro */
+    filter: brightness(0) invert(1);
+    transition: filter 0.2s ease;
+}
+
+.footer__social-icon:hover img {
+    filter: brightness(0) invert(1) sepia(100%) hue-rotate(330deg) saturate(600%); /* Íconos rojos al hover */
+}
+
+.footer__bottom {
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+    margin-top: 20px;
+}
+
+.footer__copyright {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.8rem;
+}
+
+
+/* --- Media Queries para Responsividad --- */
+
+/* Tablets (landscape) y Laptops pequeñas */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 20px;
+    }
+
+    .header__main-container {
+        flex-wrap: wrap; /* Permite que los elementos se envuelvan */
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .header__logo {
+        flex-basis: 100%; /* El logo ocupa todo el ancho */
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .header__search {
+        flex-basis: 100%; /* El buscador ocupa todo el ancho */
+        margin: 0;
+    }
+
+    .header__user-actions {
+        flex-basis: 100%; /* Las acciones de usuario ocupan todo el ancho */
+        justify-content: center;
+        margin-top: 10px;
+    }
+
+    .header__nav-list {
+        justify-content: center;
+        gap: 8px 12px;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    .product-showcase__grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+    }
+
+    .product-card__name {
+        font-size: 1.05rem;
+    }
+
+    .product-card__price {
+        font-size: 1.4rem;
+    }
+
+    .highlight-categories__grid,
+    .featured-brands__grid {
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    }
+}
+
+/* Tablets (portrait) y Celulares (landscape) */
+@media (max-width: 768px) {
+    .header__utility-bar {
+        display: none; /* Oculta la barra superior en pantallas pequeñas */
+    }
+
+    .header__main-container {
+        position: relative; /* Para posicionar el botón de menú */
+        justify-content: space-between; /* Alinea logo a izq, buscador/acciones a derecha */
+        padding-right: 60px; /* Deja espacio para el botón de menú */
+    }
+
+    .header__logo {
+        flex-basis: auto; /* Ya no ocupa el 100% */
+        margin-bottom: 0;
+    }
+
+    .header__search {
+        display: none; /* Oculta el buscador en la barra principal, puede ir en el menú hamburguesa */
+    }
+
+    .header__user-actions {
+        flex-basis: auto;
+        gap: 15px;
+        margin-top: 0;
+    }
+
+    .header__action-item span {
+        display: none; /* Oculta el texto de "Mi Cuenta", "Carrito" */
+    }
+
+    .header__menu-toggle {
+        display: block; /* Muestra el botón de menú hamburguesa */
+        top: 15px;
+        right: 15px;
+        padding: 5px;
+    }
+
+    .header__nav {
+        background-color: var(--color-alkosto-dark-blue); /* Color para el menú desplegado */
+        padding: 0;
+        position: absolute;
+        width: 100%;
+        left: 0;
+        top: 100%; /* Debajo del header principal */
+        transform: translateY(-100%); /* Empieza arriba, oculto */
+        opacity: 0;
+        visibility: hidden;
+        transition: transform 0.3s ease-out, opacity 0.3s ease-out, visibility 0.3s ease-out;
+        z-index: 1000;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .header__nav-list {
+        flex-direction: column; /* Apila los ítems del menú */
+        align-items: flex-start; /* Alinea a la izquierda */
+        padding: 20px;
+        gap: 10px;
+    }
+
+    .header__nav-link {
+        width: 100%; /* Los enlaces ocupan todo el ancho del menú desplegado */
+        padding: 10px 15px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        text-align: left;
+    }
+
+    .header__nav-list--active {
+        transform: translateY(0); /* Muestra el menú */
+        opacity: 1;
+        visibility: visible;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+        margin-bottom: 25px;
+    }
+
+    .product-showcase__grid {
+        grid-template-columns: repeat(2, 1fr); /* Dos columnas en móviles */
+    }
+
+    .footer__columns {
+        grid-template-columns: 1fr; /* Una columna en el footer para móviles */
+        text-align: center;
+    }
+
+    .footer__list {
+        margin-bottom: 20px;
+    }
+
+    .footer__social-links {
+        justify-content: center;
+    }
+}
+
+/* Celulares (portrait) */
+@media (max-width: 480px) {
+    .header__logo img {
+        height: 40px;
+    }
+
+    .header__action-item img {
+        height: 20px;
+        width: 20px;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+        margin-bottom: 20px;
+    }
+
+    section {
+        padding: 20px 0;
+    }
+
+    .highlight-categories__grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 columnas en móviles pequeños */
+        gap: 15px;
+    }
+
+    .category-icon-card__icon {
+        width: 50px;
+        height: 50px;
+    }
+
+    .category-icon-card__name {
+        font-size: 0.85rem;
+    }
+
+    .product-showcase__grid {
+        grid-template-columns: 1fr; /* Una sola columna para productos en los móviles más pequeños */
+    }
+
+    .product-card {
+        padding: 15px;
+    }
+
+    .product-card__image {
+        max-height: 150px;
+    }
+
+    .product-card__name {
+        font-size: 1rem;
+    }
+
+    .product-card__price {
+        font-size: 1.3rem;
+    }
+
+    .product-card__button {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+
+    .featured-brands__grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas para marcas en móviles */
+    }
+
+    .brand-logo {
+        max-width: 90px;
+    }
+}
